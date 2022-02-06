@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   { id: 81, name: "snareon4", src: "../audio/SnareOn4.wav", title: "Q" },
   { id: 89, name: "metallic2", src: "../audio/Metallic2.wav", title: "W" },
   { id: 69, name: "kick", src: "../audio/Kick.wav", title: "E" },

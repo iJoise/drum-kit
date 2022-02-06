@@ -1,5 +1,3 @@
-import { data } from "./data.js";
-
 const keys = document.querySelector(".keys");
 const container = document.querySelector(".container");
 
@@ -46,14 +44,17 @@ for (let index = 0; index < data.length; index++) {
   keys.appendChild(row3);
 }
 
-window.addEventListener("keydown", function (e) {
-  const audio = document.querySelector(`audio[data-key="${e.key}"]`);
-  const key = document.querySelector(`.key[data-key="${e.key}"]`);
+function playSound(e) {
+  const dataKey = e.key || this.dataset.key;
+  const audio = document.querySelector(`audio[data-key="${dataKey}"]`);
+  const key = document.querySelector(`.key[data-key="${dataKey}"]`);
   if (!audio) return;
   audio.currentTime = 0;
   audio.play();
   key.classList.add("playing");
-});
+}
+
+window.addEventListener("keydown", playSound);
 
 function removeTransition(e) {
   if (e.propertyName !== "transform") return;
@@ -61,6 +62,7 @@ function removeTransition(e) {
 }
 
 const allKeys = document.querySelectorAll(".key");
-allKeys.forEach((key) =>
-  key.addEventListener("transitionend", removeTransition)
-);
+allKeys.forEach((key) => {
+  key.addEventListener("transitionend", removeTransition);
+  key.addEventListener("click", playSound);
+});
