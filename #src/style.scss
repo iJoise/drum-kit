@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap");
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "Arial";
+$fontSup: "Bodoni Moda", serif;
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1470;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+$orange: #ffc600;
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+  color: #fff;
+  font-size: 18px;
+  background: url(../image/bg.jpeg) 0 / cover no-repeat;
+}
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+.row-1 {
+  display: flex;
+  div {
+    margin: 0 1rem;
+  }
+}
+
+.row-2 {
+  display: flex;
+  justify-content: center;
+  div {
+    margin: 0 1rem;
+  }
+}
+
+.row-3 {
+  display: flex;
+  justify-content: center;
+  div {
+    margin: 0 1.85rem;
+  }
+}
+
+.key {
+  border: 4px solid black;
+  border-radius: 5px;
+  padding: 0.7rem 0.2rem;
+  margin-bottom: 20px !important;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 5px black;
+  max-width: 100px;
+  min-width: 100px;
+  transition: all 0.1s;
+}
+
+kbd {
+  display: block;
+  font-size: 30px;
+  font-family: $fontSup;
+  padding-bottom: 5px;
+}
+
+.sound {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $orange;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: $orange;
+  box-shadow: 0 0 10px $orange;
+}
+//</ОСНОВНОЙ БЛОК>====================================================================================================
